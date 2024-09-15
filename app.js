@@ -27,7 +27,7 @@ const connectToDB = async (callback) => {
 app.get('/users', async (req, res) => {
     try {
         const users = await User.find();  // Fetch all users from the 'users' collection
-        res.json(users);  // Send the users as a JSON response
+        res.status(200).json(users);  // Send the users as a JSON response
     } catch (error) {
         console.error("Error fetching users:", error);
         res.status(500).send("Error fetching users");
